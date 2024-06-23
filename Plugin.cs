@@ -9,7 +9,7 @@ namespace SpawnProtectNotifier
         public override string Name { get; } = "SpawnProtectNotifier";
         public override string Prefix { get; } = "spawn_protect_notifier";
         public override string Author { get; } = "Robocnop";
-        public override Version Version { get; } = new Version(1, 0, 0);        
+        public override Version Version { get; } = new Version(1, 0, 1);        
 
         private EventHandlers eventHandlers;
 
