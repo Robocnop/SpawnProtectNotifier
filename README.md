@@ -1,4 +1,4 @@
-# SpawnProtectHint
+# SpawnProtectNotifier
 A plugin that show you when the spawn protect is no longer active.
 
 # Credits
