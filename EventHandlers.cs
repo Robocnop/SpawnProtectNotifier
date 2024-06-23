@@ -1,25 +1,26 @@
 ﻿using Exiled.API.Features;
-using Exiled.Events.EventArgs;
-using System;
-using MEC;
 using Exiled.Events.EventArgs.Player;
+using MEC;
 using PlayerRoles;
 
 namespace SpawnProtectNotifier
 {
     public class EventHandlers
     {
-        public void OnSpawning(SpawningEventArgs ev)
+        public Config config;
+
+        public EventHandlers(Config config)
         {
-            if (ev.Player.Role.Type != RoleTypeId.Spectator && ev.Player.Role.Type != RoleTypeId.None)
+            this.config = config;
+        }
+
+        public void OnSpawning(SpawningEventArgs ev)
+        {            
+            if (ev.Player.Role.Type != RoleTypeId.Spectator && ev.Player.Role.Type != RoleTypeId.None && ev.Player.Role.Type != RoleTypeId.Overwatch && ev.Player.Role.Type != RoleTypeId.Filmmaker)
             {
-                // Délai avant que la protection de spawn soit désactivée
-                Timing.CallDelayed(10f, () =>
+                Timing.CallDelayed(config.SpawnProtectDuration, () =>
                 {
-                    if (!ev.Player.IsCuffed && ev.Player.Role.Type != RoleTypeId.Spectator && ev.Player.Role.Type != RoleTypeId.None)
-                    {
-                        Map.Broadcast(10, $"La protection de spawn pour {ev.Player.Nickname} n'est plus active.");
-                    }
+                    Map.ShowHint(config.HintMessage.Replace("%playername%", ev.Player.Nickname), config.HintDuration);
                 });
             }
         }
