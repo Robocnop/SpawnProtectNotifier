@@ -2,6 +2,6 @@
 A plugin that show you when the spawn protect is no longer active.
 
 # Credits
-`@robocnop`\ 
+`@robocnop`
 
-`@antoniofo`\
+`@antoniofo`
