@@ -9,7 +9,8 @@ namespace SpawnProtectNotifier
         public override string Name { get; } = "SpawnProtectNotifier";
         public override string Prefix { get; } = "spawn_protect_notifier";
         public override string Author { get; } = "Robocnop";
-        public override Version Version { get; } = new Version(1, 0, 1);        
+        public override Version Version { get; } = new Version(1, 0, 2);
+        public override Version RequiredExiledVersion => new Version(8, 9, 7);
 
         private EventHandlers eventHandlers;
 
@@ -17,12 +18,16 @@ namespace SpawnProtectNotifier
         {
             eventHandlers = new EventHandlers(Config);
             Player.Spawning += eventHandlers.OnSpawning;
+            Player.Shooting += eventHandlers.OnShooting;
+            Player.ChangingRole += eventHandlers.OnChangingRole;
             base.OnEnabled();
         }
 
         public override void OnDisabled()
         {
             Player.Spawning -= eventHandlers.OnSpawning;
+            Player.Shooting -= eventHandlers.OnShooting;
+            Player.ChangingRole -= eventHandlers.OnChangingRole;
             eventHandlers = null;
             base.OnDisabled();
         }

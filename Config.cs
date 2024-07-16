@@ -1,6 +1,5 @@
 ﻿using Exiled.API.Interfaces;
 using System.ComponentModel;
-using UnityEngine;
 
 namespace SpawnProtectNotifier
 {
@@ -8,11 +7,14 @@ namespace SpawnProtectNotifier
     {
         public bool IsEnabled { get; set; } = true;
         public bool Debug { get; set; } = false;
+
+        [Description("The duration for which the hint message is displayed.")]
         public float HintDuration { get; set; } = 10;
 
-        public string HintMessage { get; set; } = "<color=yellow>La protection de spawn pour <color=red>%playername%</color> n'est plus active.</color>";
+        [Description("Message displayed when spawn protection ends. Use {0} for player name and {1} for reason.")]
+        public string HintMessage { get; set; } = "<color=yellow>Spawn protection for <color=red>{0}</color> is no longer active: {1}.</color>";
 
-        [Description("The duration of the spawn protect")]
+        [Description("The maximum duration of the spawn protection in seconds.")]
         public float SpawnProtectDuration { get; set; } = 10;
     }
 }
