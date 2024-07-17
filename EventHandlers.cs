@@ -22,11 +22,11 @@ namespace SpawnProtectNotifier
 		public void OnEffectAdded(ReceivingEffectEventArgs ev)
 		{
 			if (!ev.Effect.TryGetEffectType(out EffectType effect))
-                Log.Error($"EffectType not found please report to : {statusEffectBase}");            
-			if (effect.Type == EffectType.SpawnProtected)
+                Log.Error($"EffectType not found please report to : {ev.Effect}");            
+			if (effect == EffectType.SpawnProtected)
 			{
 				if (config.Debug)
-					Log.Debug($"{player.Nickname} has spawned. Activating spawn protection for {ev.Effect.Duration} seconds.");
+					Log.Debug($"{ev.Player.Nickname} has spawned. Activating spawn protection for {ev.Effect.Duration} seconds.");
 				Timing.CallDelayed(ev.Effect.Duration, () => {
 						ev.Player.ShowHint(string.Format(config.HintMessage, ev.Player.Nickname), config.HintDuration);
 				});							
