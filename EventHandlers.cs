@@ -4,6 +4,8 @@ using Exiled.Events.EventArgs.Player;
 using MEC;
 using CustomPlayerEffects;
 using PlayerRoles;
+using System.ComponentModel;
+using Exiled.API.Extensions;
 using System.Collections.Generic;
 
 namespace SpawnProtectNotifier
@@ -21,7 +23,7 @@ namespace SpawnProtectNotifier
 		{
 			if (!ev.Effect.TryGetEffectType(out EffectType effect))
                 Log.Error($"EffectType not found please report to : {statusEffectBase}");            
-			if (ev.Effect.Type == EffectType.SpawnProtected)
+			if (effect.Type == EffectType.SpawnProtected)
 			{
 				if (config.Debug)
 					Log.Debug($"{player.Nickname} has spawned. Activating spawn protection for {ev.Effect.Duration} seconds.");
