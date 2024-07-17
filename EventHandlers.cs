@@ -23,7 +23,7 @@ namespace SpawnProtectNotifier
 				if (config.Debug)
 					Log.Debug($"{player.Nickname} has spawned. Activating spawn protection for {ev.Effect.Duration} seconds.");
 				Timing.CallDelayed(ev.Effect.Duration, () => {
-						ev.Player.ShowHint(string.Format(config.HintMessage, player.Nickname, reason), config.HintDuration);
+						ev.Player.ShowHint(string.Format(config.HintMessage, ev.Player.Nickname), config.HintDuration);
 				});							
 			}
 		}			
