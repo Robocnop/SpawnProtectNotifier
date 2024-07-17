@@ -2,6 +2,7 @@
 using Exiled.API.Features;
 using Exiled.Events.EventArgs.Player;
 using MEC;
+using CustomPlayerEffects;
 using PlayerRoles;
 using System.Collections.Generic;
 
@@ -18,6 +19,8 @@ namespace SpawnProtectNotifier
 		
 		public void OnEffectAdded(ReceivingEffectEventArgs ev)
 		{
+			if (!ev.Effect.TryGetEffectType(out EffectType effect))
+                Log.Error($"EffectType not found please report to : {statusEffectBase}");            
 			if (ev.Effect.Type == EffectType.SpawnProtected)
 			{
 				if (config.Debug)
