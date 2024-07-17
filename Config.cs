@@ -12,9 +12,6 @@ namespace SpawnProtectNotifier
         public float HintDuration { get; set; } = 10;
 
         [Description("Message displayed when spawn protection ends. Use {0} for player name and {1} for reason.")]
-        public string HintMessage { get; set; } = "<color=yellow>Spawn protection for <color=red>{0}</color> is no longer active: {1}.</color>";
-
-        [Description("The maximum duration of the spawn protection in seconds.")]
-        public float SpawnProtectDuration { get; set; } = 10;
+        public string HintMessage { get; set; } = "<color=yellow>Spawn protection for <color=red>{0}</color> is no longer active: {1}.</color>";        
     }
 }
