@@ -10,3 +10,6 @@ A plugin that show you when the spawn protect is no longer active.
 `@robocnop`
 
 `@antoniofo`
+
+# Stats
+![Alt](https://repobeats.axiom.co/api/embed/3f21f21ee3c44721dbd0a617dbd3daa7174c06c4.svg "Repobeats analytics image")
