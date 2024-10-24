@@ -1,3 +1,5 @@
+# discontinued !!!
+
 ![GitHub all releases](https://img.shields.io/github/downloads/Robocnop/SpawnProtectNotifier/total)
 
 # SpawnProtectNotifier
