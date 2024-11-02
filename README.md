@@ -1,4 +1,4 @@
-# discontinued !!!
+# Updated by Antoniofo
 
 ![GitHub all releases](https://img.shields.io/github/downloads/Robocnop/SpawnProtectNotifier/total)
 
